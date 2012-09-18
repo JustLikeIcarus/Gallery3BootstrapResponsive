@@ -41,6 +41,7 @@
         <?php echo $theme->script("jquery.min.js") ?>
         <?php echo $theme->script("jquery.form.js") ?>
         <?php echo $theme->script("jquery-ui.min.js") ?>
+        <?php echo $theme->script("less.min.js"); ?>
         <?php echo $theme->script("gallery.common.js") ?>
         <?php /* MSG_CANCEL is required by gallery.dialog.js */ ?>
         <script type="text/javascript">
@@ -62,9 +63,10 @@
         <?php $theme->head() ?>
 
         <? /* Theme specific CSS/JS goes last so that it can override module CSS/JS */ ?>
-        <?= $theme->script("ui.init.js") ?>
+        <?= $theme->script("ui.init.js") ?>        
         <?= $theme->css("bootstrap.css") ?>
         <?= $theme->css("bootstrap-responsive.css") ?>
+        <link rel="stylesheet/less" type="text/css" href="<?= $theme->url("less/screen.less") ?>">
         <?= $theme->script("bootstrap.js") ?>
         <?//= $theme->css("yui/reset-fonts-grids.css") ?>
         <?//= $theme->css("superfish/css/superfish.css") ?>

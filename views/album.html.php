@@ -47,14 +47,8 @@
         </a>
         </div>
         <?= $theme->thumb_top($child) ?>
-        <?= $theme->thumb_bottom($child) ?>        
-        <div class="btn-group">
-            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-                Options
-                <span class="caret"></span>
-            </a>           
-            <?= $theme->context_menu($child, "#g-item-id-{$child->id} .g-thumbnail") ?>
-        </div>
+        <?= $theme->thumb_bottom($child) ?>                 
+        <?= $theme->context_menu($child, "#g-item-id-{$child->id} .g-thumbnail") ?>
         <div class="caption">
         <h3><span class="<?= $item_class ?>"></span>
             <a href="<?= $child->url() ?>"><?= html::purify($child->title) ?></a></h3>
