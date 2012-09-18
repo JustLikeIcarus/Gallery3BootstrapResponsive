@@ -1,6 +1,6 @@
 <?php defined("SYSPATH") or die("No direct script access.") ?>
 <?= $theme->sidebar_top() ?>
-<div id="g-view-menu" class="clearfix">
+<div class="clearfix">
   <? if ($page_subtype == "album"):?>
     <?= $theme->album_menu() ?>
   <? elseif ($page_subtype == "photo") : ?>
