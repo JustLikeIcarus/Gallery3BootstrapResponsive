@@ -2,10 +2,18 @@
 <?php if (!$menu->is_empty()): // Don't show the menu if it has no choices ?>
     <? if ($menu->is_root): ?>
         <?php
+        $nav = true;
         if ($menu->css_id == 'g-album-menu') :
+            $nav = true;
             $nav_list = true;
+            $button_group = false;
+        elseif ($menu->css_id == 'g-login-menu') :
+            $nav = false;
+            $nav_list = false;
+            $button_group = true;
         endif;
         ?>
+        <?php if ($nav) : ?>
         <div <?= !$nav_list ? 'class="dropdown"' : 'class="clearfix"'; ?>>
             <ul <?= $menu->css_id ? "id='$menu->css_id'" : "" ?> class="nav <?= $nav_list ? 'nav-list' : null; ?> <?= $menu->css_class ?>" role="navigation">    
                 <? foreach ($menu->elements as $element): ?>
@@ -13,6 +21,13 @@
                 <? endforeach ?>    
             </ul>
         </div>
+        <?php else: ?>
+        <div class="btn-group">
+            <?php foreach ($menu->elements as $element) : ?>
+                <?= $element->render(); ?>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
     <? else: ?>
         <?php if (in_array($menu->id, array('settings_menu','content_menu','appearance_menu','statistics_menu'))) : ?>
         <li title="<?= $menu->label->for_html_attr() ?>" class="dropdown-submenu">
